@@ -1,0 +1,36 @@
+{
+  "name": "hci-ng-grid-dto",
+  "version": "1.0.0-beta.0",
+  "description": "DTOs for filtering, sorting, paging and grouping information related to grids and lists for backend calls.",
+  "keywords": [
+    "dto",
+    "grid",
+    "list",
+    "table"
+  ],
+  "license": "MIT",
+  "repository": "git+https://github.com/HuntsmanCancerInstitute-RISR/hci-ng-grid-dto.git",
+  "homepage": "https://huntsmancancerinstitute-risr.github.io/hci-ng-grid-demo",
+  "scripts": {
+    "build": "npm run clean && tsc",
+    "clean": "npm run rimraf index.js index.d.ts index.ngsummary.json index.metadata.json index.js.map src/**/*.js src/**/*.ngfactory.ts src/**/*.d.ts src/**/*.js.map src/**/*.ngsummary.json src/**/*.metadata.json code-coverage dist",
+    "copyfiles": "copyfiles",
+    "copyToDist": "npm run copyfiles -- package.json README.md dist/",
+    "npmPack": "npm run build && npm run copyToDist && cd dist && npm pack",
+    "npmPublish": "npm run build && npm run copyToDist && cd dist && npm publish --access public",
+    "rimraf": "rimraf"
+  },
+  "main": "index.js",
+  "module": "index.js",
+  "typings": "index.d.ts",
+  "files": [
+    "index.+(js|d.ts|js.map|metadata.json)",
+    "src/**/!(*spec).+(js|d.ts|js.map|metadata.json|css)"
+  ],
+  "devDependencies": {
+    "copyfiles": "^1.2.0",
+    "rimraf": "^2.6.1",
+    "tslint": "^4.5.1",
+    "typescript": "~3.4.2"
+  }
+}

@@ -1,0 +1,70 @@
+#
+# Copyright (c) 2016 Huntsman Cancer Institute at the University of Utah, Confidential and Proprietary
+#
+
+# General
+build/
+dist/
+build-eclipse/
+build.ant/
+
+# JS/TS Related
+npm-debug*
+bower_components/
+node_modules/
+code-coverage/
+typings/
+index.js*
+index.d.ts
+index.metadata.json
+index.ngsummary.json
+**/src/**/*.js
+**/src/**/*.js.map
+**/src/**/*.d.ts
+**/src/**/*metadata.json
+**/src/**/*ngsummary.json
+**/src/**/*ngfactory.ts
+**/docs
+
+## demo artifacts
+**/node_modules
+**/dist
+
+# IDE artifacts
+*.iml
+.idea/
+
+# any logging
+*.log
+
+# Gradle
+.gradle/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Intellij
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+classes/
+
+# NetBeans
+/.nb-gradle/
+.nb*
+nbproject/
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
+
+# @hci/style
+modules/@hci/style/*.js
+!module/@hci/style/gulpfile.js
