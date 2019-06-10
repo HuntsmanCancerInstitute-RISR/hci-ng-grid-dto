@@ -7,7 +7,7 @@ export class HciFilterDto {
   operator: string = "LIKE";
   valid: boolean = false;
 
-  constructor(field: string, dataType: string, value: any, highValue: any, operator: string, valid: boolean) {
+  constructor(field?: string, dataType?: string, value?: any, highValue?: any, operator?: string, valid?: boolean) {
     this.field = field;
     this.dataType = dataType;
     this.value = value;

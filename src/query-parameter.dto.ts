@@ -4,7 +4,7 @@ export class HciQueryParameterDto {
   value: any;
   dataType: string;
 
-  constructor(field: string, value: any, dataType?: string) {
+  constructor(field?: string, value?: any, dataType?: string) {
     this.field = field;
     this.value = value;
     this.dataType = dataType;

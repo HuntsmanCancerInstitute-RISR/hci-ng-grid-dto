@@ -6,7 +6,7 @@ export class HciDataDto {
   dataCounts: number[];
   gridDto: HciGridDto;
 
-  constructor(data: Array<Object>, gridDto: HciGridDto) {
+  constructor(data?: Array<Object>, gridDto?: HciGridDto) {
     this.data = data;
     this.gridDto = gridDto;
   }

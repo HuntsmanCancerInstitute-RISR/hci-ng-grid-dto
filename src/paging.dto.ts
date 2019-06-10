@@ -5,8 +5,11 @@ export class HciPagingDto {
   dataSize: number = 0;
   numPages: number = 0;
 
-  toString(): string {
-    return "PageInfo: page: " + this.page + "; pageSize: " + this.pageSize + "; dataSize: " + this.dataSize + "; numPages: " + this.numPages;
+  constructor(page?: number, pageSize?: number, dataSize?: number, numPages?: number) {
+    this.page = page;
+    this.pageSize = pageSize;
+    this.dataSize = dataSize;
+    this.numPages = numPages;
   }
 
   getPage(): number {

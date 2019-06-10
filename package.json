@@ -12,10 +12,11 @@
   "repository": "git+https://github.com/HuntsmanCancerInstitute-RISR/hci-ng-grid-dto.git",
   "homepage": "https://huntsmancancerinstitute-risr.github.io/hci-ng-grid-demo",
   "scripts": {
-    "build": "npm run clean && tsc",
+    "build": "npm run clean && tsc && npm run karma start",
     "clean": "npm run rimraf index.js index.d.ts index.ngsummary.json index.metadata.json index.js.map src/**/*.js src/**/*.ngfactory.ts src/**/*.d.ts src/**/*.js.map src/**/*.ngsummary.json src/**/*.metadata.json code-coverage dist",
     "copyfiles": "copyfiles",
     "copyToDist": "npm run copyfiles -- package.json README.md dist/",
+    "karma": "karma",
     "npmPack": "npm run build && npm run copyToDist && cd dist && npm pack",
     "npmPublish": "npm run build && npm run copyToDist && cd dist && npm publish --access public",
     "rimraf": "rimraf"
@@ -28,9 +29,30 @@
     "src/**/!(*spec).+(js|d.ts|js.map|metadata.json|css)"
   ],
   "devDependencies": {
+    "@types/jasmine": "^2.5.53",
+    "@types/node": "^8.0.0",
+    "@types/webpack": "4.1.2",
+    "awesome-typescript-loader": "^3.2.3",
     "copyfiles": "^1.2.0",
+    "core-js": "^2.4.1",
+    "inline-source-map": "^0.6.2",
+    "istanbul-instrumenter-loader": "2.0.0",
+    "jasmine-core": "^2.6.2",
+    "karma": "^1.7.0",
+    "karma-chrome-launcher": "^2.1.1",
+    "karma-coverage": "^1.1.1",
+    "karma-jasmine": "^1.1.0",
+    "karma-mocha-reporter": "^2.2.3",
+    "karma-remap-coverage": "^0.1.4",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^2.0.3",
     "rimraf": "^2.6.1",
+    "source-map-loader": "^0.2.1",
     "tslint": "^4.5.1",
-    "typescript": "~3.4.2"
+    "typescript": "~3.4.2",
+    "webpack": "3.11.x",
+    "webpack-dev-middleware": "1.12.x",
+    "webpack-dev-server": "2.7.x",
+    "webpack-merge": "4.1.x"
   }
 }

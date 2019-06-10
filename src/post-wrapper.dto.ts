@@ -6,7 +6,7 @@ export class HciPostWrapperDto {
   gridDto: HciGridDto;
   parameters: HciQueryParameterDto[];
 
-  constructor(gridDto: HciGridDto, parameters?: HciQueryParameterDto[]) {
+  constructor(gridDto?: HciGridDto, parameters?: HciQueryParameterDto[]) {
     this.gridDto = gridDto;
     this.parameters = parameters;
   }

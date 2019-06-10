@@ -10,7 +10,7 @@ export class HciGridDto {
   paging: HciPagingDto;
   grouping: HciGroupingDto;
 
-  constructor(filters: HciFilterDto[], sorts: HciSortDto[], paging: HciPagingDto) {
+  constructor(filters?: HciFilterDto[], sorts?: HciSortDto[], paging?: HciPagingDto) {
     this.filters = filters;
     this.sorts = sorts;
     this.paging = paging;

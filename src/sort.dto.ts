@@ -3,7 +3,7 @@ export class HciSortDto {
   field: string;
   asc: boolean = true;
 
-  constructor(field: string, asc?: boolean) {
+  constructor(field?: string, asc?: boolean) {
     this.field = field;
     if (asc) {
       this.asc = asc;
