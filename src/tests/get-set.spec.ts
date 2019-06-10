@@ -1,4 +1,3 @@
-
 import {} from "jasmine";
 
 import {HciPostWrapperDto} from "../post-wrapper.dto";
@@ -10,23 +9,11 @@ import {HciFilterDto} from "../filter.dto";
 import {HciGridDto} from "../grid.dto";
 import {HciDataDto} from "../data.dto";
 
-it ("DTOs should be created.", () => {
-  expect((new HciPostWrapperDto()).getGridDto()).toBe(undefined);
-  expect((new HciDataDto()).getGridDto()).toBe(undefined);
-  expect((new HciGridDto()).getFilters()).toBe(undefined);
-  expect((new HciFilterDto()).getDataType()).toBe(undefined);
-  expect((new HciSortDto()).getField()).toBe(undefined);
-  expect((new HciPagingDto()).getDataSize()).toBe(undefined);
-  expect((new HciGroupingDto()).getFields()).toBe(undefined);
-  expect((new HciQueryParameterDto()).getField()).toBe(undefined);
-});
-
-it ("DTOs should be have default values.", () => {
-  expect((new HciSortDto()).getAsc()).toBe(true);
-});
-
 it ("Data should be defined.", () => {
-  let dto: HciDataDto = new HciDataDto([], new HciGridDto(), []);
+  let dto: HciDataDto = new HciDataDto();
+  dto.setData([]);
+  dto.setDataCounts([]);
+  dto.setGridDto(new HciGridDto());
 
   expect(dto.getData().length).toBe(0);
   expect(dto.getDataCounts().length).toBe(0);
@@ -34,14 +21,20 @@ it ("Data should be defined.", () => {
 });
 
 it ("Post should be defined.", () => {
-  let dto: HciPostWrapperDto = new HciPostWrapperDto(new HciGridDto(), []);
+  let dto: HciPostWrapperDto = new HciPostWrapperDto();
+  dto.setGridDto(new HciGridDto());
+  dto.setParameters([]);
 
   expect(dto.getParameters().length).toBe(0);
   expect(dto.getGridDto() !== undefined).toBe(true);
 });
 
 it ("Grid should be defined.", () => {
-  let dto: HciGridDto = new HciGridDto([], [], new HciPagingDto(), new HciGroupingDto());
+  let dto: HciGridDto = new HciGridDto();
+  dto.setFilters([]);
+  dto.setSorts([]);
+  dto.setPaging(new HciPagingDto());
+  dto.setGrouping(new HciGroupingDto());
 
   expect(dto.getFilters().length).toBe(0);
   expect(dto.getSorts().length).toBe(0);
@@ -50,7 +43,13 @@ it ("Grid should be defined.", () => {
 });
 
 it ("Filter should be defined.", () => {
-  let dto: HciFilterDto = new HciFilterDto("firstName", "string", "0", "1", "E", true);
+  let dto: HciFilterDto = new HciFilterDto();
+  dto.setDataType("string");
+  dto.setField("firstName");
+  dto.setHighValue("1");
+  dto.setOperator("E");
+  dto.setValid(true);
+  dto.setValue("0");
 
   expect(dto.getDataType() === "string");
   expect(dto.getField() === "firstName");
@@ -61,14 +60,20 @@ it ("Filter should be defined.", () => {
 });
 
 it ("Sort should be defined.", () => {
-  let dto: HciSortDto = new HciSortDto("firstName", false);
+  let dto: HciSortDto = new HciSortDto();
+  dto.setField("firstName");
+  dto.setAsc(false);
 
   expect(dto.getField() === "firstName");
   expect(!dto.getAsc());
 });
 
 it ("Paging should be defined.", () => {
-  let dto: HciPagingDto = new HciPagingDto(3, 4, 1, 2);
+  let dto: HciPagingDto = new HciPagingDto();
+  dto.setDataSize(1);
+  dto.setNumPages(2);
+  dto.setPage(3);
+  dto.setPageSize(4)
 
   expect(dto.getDataSize() === 1);
   expect(dto.getPage() === 2);
@@ -77,14 +82,19 @@ it ("Paging should be defined.", () => {
 });
 
 it ("Grouping should be defined.", () => {
-  let dto: HciGroupingDto = new HciGroupingDto([], true);
+  let dto: HciGroupingDto = new HciGroupingDto();
+  dto.setFields([]);
+  dto.setGroupQuery(true);
 
   expect(dto.getFields().length === 0);
   expect(dto.getGroupQuery());
 });
 
 it ("Query Parameter should be defined.", () => {
-  let dto: HciQueryParameterDto = new HciQueryParameterDto("firstName", "Bob", "string");
+  let dto: HciQueryParameterDto = new HciQueryParameterDto();
+  dto.setField("firstName");
+  dto.setValue("Bob");
+  dto.setDataType("string");
 
   expect(dto.getField() === "firstName");
   expect(dto.getValue() === "Bob");
