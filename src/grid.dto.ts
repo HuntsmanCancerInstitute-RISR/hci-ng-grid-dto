@@ -5,10 +5,10 @@ import {HciGroupingDto} from "./grouping.dto";
 
 export class HciGridDto {
 
-  filters: HciFilterDto[];
-  sorts: HciSortDto[];
-  paging: HciPagingDto;
-  grouping: HciGroupingDto;
+  filters: HciFilterDto[] = [];
+  sorts: HciSortDto[] = [];
+  paging: HciPagingDto = new HciPagingDto();
+  grouping: HciGroupingDto = new HciGroupingDto();
 
   constructor(filters?: HciFilterDto[], sorts?: HciSortDto[], paging?: HciPagingDto, grouping?: HciGroupingDto) {
     this.filters = filters;

@@ -1,7 +1,7 @@
 export class HciGroupingDto {
 
   fields: string[];
-  groupQuery: boolean;
+  groupQuery: boolean = false;
 
   constructor(fields?: string[], groupQuery?: boolean) {
     this.fields = fields;
