@@ -1,10 +1,22 @@
+/**
+ * Operators:
+ *
+ * L: like
+ * E: Equals
+ * LT: Less Than
+ * LE: Less Than or Equal
+ * GE: Greater Than or Equal
+ * GT: Greater Than
+ * B: Between
+ * O: Outside
+ */
 export class HciFilterDto {
 
   field: string;
   dataType: string = "string";
   value: any;
   highValue: any;
-  operator: string = "LIKE";
+  operator: string = "L";
   valid: boolean = false;
 
   constructor(field?: string, dataType?: string, value?: any, highValue?: any, operator?: string, valid?: boolean) {

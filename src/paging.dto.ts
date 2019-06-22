@@ -35,7 +35,9 @@ export class HciPagingDto {
   setDataSize(dataSize: number) {
     this.dataSize = dataSize;
 
-    this.numPages = Math.ceil(this.dataSize / this.pageSize);
+    if (this.dataSize && this.pageSize && this.pageSize > 0) {
+      this.numPages = Math.ceil(this.dataSize / this.pageSize);
+    }
   }
 
   getNumPages(): number {

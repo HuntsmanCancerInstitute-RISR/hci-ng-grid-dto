@@ -1,6 +1,6 @@
 {
   "name": "hci-ng-grid-dto",
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0-beta.3",
   "description": "DTOs for filtering, sorting, paging and grouping information related to grids and lists for backend calls.",
   "keywords": [
     "dto",
