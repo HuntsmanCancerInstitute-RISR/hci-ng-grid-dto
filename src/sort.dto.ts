@@ -3,9 +3,9 @@ export class HciSortDto {
   field: string;
   asc: boolean = true;
 
-  constructor(field?: string, asc?: boolean) {
+  constructor(field?: string, asc: boolean = true) {
     this.field = field;
-    if (asc) {
+    if (asc !== undefined) {
       this.asc = asc;
     }
   }

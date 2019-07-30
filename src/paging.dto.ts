@@ -5,7 +5,7 @@ export class HciPagingDto {
   dataSize: number = 0;
   numPages: number = 0;
 
-  constructor(page?: number, pageSize?: number, dataSize?: number, numPages?: number) {
+  constructor(page: number = 0, pageSize: number = -1, dataSize: number = 0, numPages: number = 1) {
     this.page = page;
     this.pageSize = pageSize;
     this.dataSize = dataSize;
@@ -37,6 +37,8 @@ export class HciPagingDto {
 
     if (this.dataSize && this.pageSize && this.pageSize > 0) {
       this.numPages = Math.ceil(this.dataSize / this.pageSize);
+    } else if (this.pageSize && this.pageSize <= 0) {
+      this.numPages = 1;
     }
   }
 
@@ -46,5 +48,27 @@ export class HciPagingDto {
 
   setNumPages(numPages: number) {
     this.numPages = numPages;
+  }
+
+  toFirstPage(): void {
+    if (this.getPage() > 0) {
+      this.setPage(this.getPage() - 1);
+    }
+  }
+
+  toNextPage(): void {
+    if (this.getPage() < this.getNumPages() - 1) {
+      this.setPage(this.getPage() + 1);
+    }
+  }
+
+  toLastPage(): void {
+    this.setPage(this.getNumPages() - 1);
+  }
+
+  toPreviousPage(): void {
+    if (this.getPage() > 0) {
+      this.setPage(this.getPage() - 1);
+    }
   }
 }

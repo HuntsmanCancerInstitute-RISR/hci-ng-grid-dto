@@ -13,11 +13,11 @@ import {HciDataDto} from "../data.dto";
 it ("DTOs should be created.", () => {
   expect((new HciPostWrapperDto()).getGridDto()).toBe(undefined);
   expect((new HciDataDto()).getGridDto()).toBe(undefined);
-  expect((new HciGridDto()).getFilters()).toBe(undefined);
-  expect((new HciFilterDto()).getDataType()).toBe(undefined);
+  expect((new HciGridDto()).getFilters().length).toBe(0);
+  expect((new HciFilterDto()).getDataType()).toBe("string");
   expect((new HciSortDto()).getField()).toBe(undefined);
-  expect((new HciPagingDto()).getDataSize()).toBe(undefined);
-  expect((new HciGroupingDto()).getFields()).toBe(undefined);
+  expect((new HciPagingDto()).getDataSize()).toBe(0);
+  expect((new HciGroupingDto()).getFields().length).toBe(0);
   expect((new HciQueryParameterDto()).getField()).toBe(undefined);
 });
 

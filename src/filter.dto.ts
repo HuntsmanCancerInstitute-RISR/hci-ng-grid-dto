@@ -19,7 +19,7 @@ export class HciFilterDto {
   operator: string = "L";
   valid: boolean = false;
 
-  constructor(field?: string, dataType?: string, value?: any, highValue?: any, operator?: string, valid?: boolean) {
+  constructor(field?: string, dataType: string = "string", value?: any, highValue?: any, operator: string = "L", valid: boolean = false) {
     this.field = field;
     this.dataType = dataType;
     this.value = value;
